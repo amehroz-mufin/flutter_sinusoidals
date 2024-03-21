@@ -2,7 +2,7 @@
 // Use of this source code is governed by a license that can be
 // found in the LICENSE file.
 
-// @dart = 2.9
+// @dart = 3.1
 
 import 'dart:math' as math;
 
@@ -28,8 +28,8 @@ typedef SinusoidalItemBuilder = SinusoidalItem Function(
 class SinusoidalItem {
   const SinusoidalItem({
     this.model = const SinusoidalModel(),
-    @required this.child,
-  }) : assert(child != null);
+    required this.child,
+  });
 
   /// A given child at which will be clipped from to create a sinusoidal.
   final Widget child;
@@ -165,18 +165,14 @@ class SinusoidalModel extends Equatable {
 ///  * [CombinedWave], which is a widget specialized for visualizing a combined wave.
 ///
 class Sinusoidals extends _BaseWaveWidget {
-  const Sinusoidals({
-    Key key,
-    @required this.itemCount,
-    @required this.builder,
-    int period,
-    bool reverse,
+  Sinusoidals({
+    required this.itemCount,
+    required this.builder,
+    int? period,
+    bool? reverse,
     this.alignment = AlignmentDirectional.topStart,
-  })  : assert(itemCount != null),
-        assert(builder != null),
-        super(
-          key: key,
-          period: period,
+  }) : super(
+          period: period!,
           reverse: reverse ?? false,
         );
 
@@ -246,17 +242,14 @@ class _SinusoidalsState extends _BaseWaveWidgetState<Sinusoidals> {
 ///  * [CombinedWave], which is a widget specialized for visualizing a combined wave.
 ///
 class Sinusoidal extends _BaseWaveWidget {
-  const Sinusoidal({
-    Key key,
+  Sinusoidal({
     this.model = const SinusoidalModel(),
-    int period,
-    bool reverse,
-    @required this.child,
-  })  : assert(child != null),
-        super(
-          key: key,
-          period: period,
-          reverse: reverse ?? false,
+    int? period,
+    bool? reverse,
+    required this.child,
+  }) : super(
+          period: period!,
+          reverse: reverse!,
         );
 
   /// A given child at which will be  from to create a sinusoidal.
@@ -322,17 +315,14 @@ class _SinusoidalState extends _BaseWaveWidgetState<Sinusoidal> {
 ///  * [Sinusoidal], which is a widget specialized for visualizing a sinusoidal.
 ///
 class CombinedWave extends _BaseWaveWidget {
-  const CombinedWave({
-    Key key,
-    @required this.models,
-    int period,
-    bool reverse,
-    @required this.child,
-  })  : assert(child != null),
-        super(
-          key: key,
-          period: period,
-          reverse: reverse ?? false,
+  CombinedWave({
+    required this.models,
+    int? period,
+    bool? reverse,
+    required this.child,
+  }) : super(
+          period: period!,
+          reverse: reverse!,
         );
 
   /// A given child at which will be  from to create a wave.
@@ -363,16 +353,13 @@ class _CombinedWaveState extends _BaseWaveWidgetState<CombinedWave> {
 ///
 /// [child]'s height need to be at least 100 to work.
 class MagmaWave extends _BaseWaveWidget {
-  const MagmaWave({
-    Key key,
-    int period,
-    bool reverse,
-    @required this.child,
-  })  : assert(child != null),
-        super(
-          key: key,
-          period: period,
-          reverse: reverse ?? false,
+  MagmaWave({
+    int? period,
+    bool? reverse,
+    required this.child,
+  }) : super(
+          period: period!,
+          reverse: reverse!,
         );
 
   /// A given child at which will be  from to create a wave.
@@ -397,10 +384,9 @@ class _MagmaWaveState extends _BaseWaveWidgetState<MagmaWave> {
 
 abstract class _BaseWaveWidget extends StatefulWidget {
   const _BaseWaveWidget({
-    Key key,
-    this.period,
-    this.reverse,
-  }) : super(key: key);
+    required this.period,
+    required this.reverse,
+  });
 
   /// The period (measured in milliseconds) to complete a full revolution.
   final int period;
@@ -413,7 +399,7 @@ abstract class _BaseWaveWidget extends StatefulWidget {
 
 abstract class _BaseWaveWidgetState<T extends _BaseWaveWidget> extends State<T>
     with SingleTickerProviderStateMixin<T> {
-  AnimationController _timeController;
+  late AnimationController _timeController;
 
   @override
   void initState() {
@@ -422,7 +408,7 @@ abstract class _BaseWaveWidgetState<T extends _BaseWaveWidget> extends State<T>
       vsync: this,
       upperBound: 2 * _tau,
       animationBehavior: AnimationBehavior.preserve,
-      duration: Duration(milliseconds: widget.period ?? 5000),
+      duration: Duration(milliseconds: widget.period),
     );
     _timeController.repeat();
   }
@@ -436,9 +422,9 @@ abstract class _BaseWaveWidgetState<T extends _BaseWaveWidget> extends State<T>
 
 class _SinusoidalClipper extends CustomClipper<Path> {
   _SinusoidalClipper({
-    this.time,
-    this.model,
-    this.reverse,
+    required this.time,
+    required this.model,
+    required this.reverse,
   }) : super(reclip: time);
 
   static final List<Offset> offsets = <Offset>[];
@@ -473,9 +459,9 @@ class _SinusoidalClipper extends CustomClipper<Path> {
 
 class _CombinedWaveClipper extends CustomClipper<Path> {
   _CombinedWaveClipper({
-    this.time,
-    this.models,
-    this.reverse,
+    required this.time,
+    required this.models,
+    required this.reverse,
   }) : super(reclip: time);
 
   static final List<Offset> offsets = <Offset>[];
@@ -514,8 +500,8 @@ class _CombinedWaveClipper extends CustomClipper<Path> {
 
 class _MagmaWaveClipper extends CustomClipper<Path> {
   _MagmaWaveClipper({
-    this.time,
-    this.reverse,
+    required this.time,
+    required this.reverse,
   }) : super(reclip: time);
 
   static final List<Offset> offsets = <Offset>[];
