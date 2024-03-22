@@ -4,6 +4,8 @@
 
 // @dart = 3.1
 
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
@@ -165,14 +167,14 @@ class SinusoidalModel extends Equatable {
 ///  * [CombinedWave], which is a widget specialized for visualizing a combined wave.
 ///
 class Sinusoidals extends _BaseWaveWidget {
-  Sinusoidals({
+  const Sinusoidals({
     required this.itemCount,
     required this.builder,
     int? period,
     bool? reverse,
     this.alignment = AlignmentDirectional.topStart,
   }) : super(
-          period: period!,
+          period: period ?? 1,
           reverse: reverse ?? false,
         );
 
@@ -242,14 +244,14 @@ class _SinusoidalsState extends _BaseWaveWidgetState<Sinusoidals> {
 ///  * [CombinedWave], which is a widget specialized for visualizing a combined wave.
 ///
 class Sinusoidal extends _BaseWaveWidget {
-  Sinusoidal({
+  const Sinusoidal({
     this.model = const SinusoidalModel(),
     int? period,
     bool? reverse,
     required this.child,
   }) : super(
-          period: period!,
-          reverse: reverse!,
+          period: period ?? 1,
+          reverse: reverse ?? false,
         );
 
   /// A given child at which will be  from to create a sinusoidal.
@@ -315,14 +317,14 @@ class _SinusoidalState extends _BaseWaveWidgetState<Sinusoidal> {
 ///  * [Sinusoidal], which is a widget specialized for visualizing a sinusoidal.
 ///
 class CombinedWave extends _BaseWaveWidget {
-  CombinedWave({
+  const CombinedWave({
     required this.models,
     int? period,
     bool? reverse,
     required this.child,
   }) : super(
-          period: period!,
-          reverse: reverse!,
+          period: period ?? 1,
+          reverse: reverse ?? false,
         );
 
   /// A given child at which will be  from to create a wave.
@@ -353,13 +355,13 @@ class _CombinedWaveState extends _BaseWaveWidgetState<CombinedWave> {
 ///
 /// [child]'s height need to be at least 100 to work.
 class MagmaWave extends _BaseWaveWidget {
-  MagmaWave({
+  const MagmaWave({
     int? period,
     bool? reverse,
     required this.child,
   }) : super(
-          period: period!,
-          reverse: reverse!,
+          period: period ?? 1,
+          reverse: reverse ?? false,
         );
 
   /// A given child at which will be  from to create a wave.

@@ -1,3 +1,9 @@
+## 0.2.2
+
+### Changed
+
+- Fixed Null Check Operator Used on a Null Value Error.
+
 ## 0.2.1
 
 ### Changed
