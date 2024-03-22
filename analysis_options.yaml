@@ -13,7 +13,7 @@ analyzer:
     # Ignore analyzer hints for updating pubspecs when using Future or
     # Stream and not importing dart:async
     # Please see https://github.com/flutter/flutter/pull/24528 for details.
-    sdk_version_async_exported_from_core: ignore
+
   exclude:
     - "bin/cache/**"
     # the following two are relative to the stocks example and the flutter package respectively
@@ -41,7 +41,6 @@ linter:
     - always_declare_return_types
     # - always_put_control_body_on_new_line # violates Effective Dart "DO format your code using dartfmt". See note about Flutter SDK style below
     # - always_put_required_named_parameters_first # does not allow for other logical orderings of parameters, such as matching the class field order or alphabetical. We prefer having parameters in the same order as fields https://github.com/flutter/flutter/issues/10219
-    - always_require_non_null_named_parameters
     # - always_specify_types # violates Effective Dart "AVOID type annotating initialized local variables" and others. See note about Flutter SDK style below
     - annotate_overrides
     # - avoid_annotating_with_dynamic # violates Effective Dart "PREFER annotating with dynamic instead of letting inference fail". conflicts with always_specify_types
@@ -67,7 +66,6 @@ linter:
     - avoid_renaming_method_parameters
     - avoid_return_types_on_setters
     # - avoid_returning_null # https://dart-lang.github.io/linter/lints/avoid_returning_null.html. there are plenty of valid reasons to return null
-    - avoid_returning_null_for_future
     - avoid_returning_null_for_void
     # - avoid_returning_this # https://dart-lang.github.io/linter/lints/avoid_returning_this.html. there are plenty of valid reasons to return this
     - avoid_setters_without_getters
@@ -101,17 +99,13 @@ linter:
     - hash_and_equals
     - implementation_imports
     # - invariant_booleans # too many false positives: https://github.com/dart-lang/linter/issues/811
-    - iterable_contains_unrelated_type
     - join_return_with_assignment
     - library_names
-    - library_prefixes
     # - lines_longer_than_80_chars # too strict
-    - list_remove_unrelated_type
     # - literal_only_boolean_expressions # too many false positives: https://github.com/dart-lang/sdk/issues/34181
     - missing_whitespace_between_adjacent_strings
     - no_adjacent_strings_in_list
     - no_duplicate_case_values
-    - no_logic_in_create_state
     - no_runtimeType_toString
     - non_constant_identifier_names
     - null_closures

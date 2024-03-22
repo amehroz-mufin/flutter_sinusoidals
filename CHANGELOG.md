@@ -1,3 +1,9 @@
+## 0.2.3
+
+### Changed
+
+- Fixed Documentation
+
 ## 0.2.2
 
 ### Changed
