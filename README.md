@@ -1,6 +1,6 @@
-# flutter_sinusoidals
+# flutter_sinusoidals_v2
 
-[![Pub](https://img.shields.io/pub/v/flutter_sinusoidals.svg)](https://pub.dartlang.org/packages/flutter_sinusoidals)
+[![Pub](https://img.shields.io/pub/v/flutter_sinusoidals.svg)](https://pub.dev/packages/flutter_sinusoidals_v2)
 
 A flutter package that helps you to visualize sine waves as you desire.
 All basic waves are already supported, plus customized waves & some pre-defined waves.
@@ -21,7 +21,7 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 ```yaml
 dependencies:
   ...
-  flutter_sinusoidals:
+  flutter_sinusoidals_v2:
 ```
 
 In your code add the following import:
@@ -142,12 +142,14 @@ See the [Changelog](CHANGELOG.md) to know what was changed.
 
 Feel free to contribute to this project.
 
-If you find a bug or want a feature, but don't know how to fix/implement it, please fire an [issue](https://github.com/dungnv2602/flutter_sinusoidals/issues).
+If you find a bug or want a feature, but don't know how to fix/implement it, please fire an [issue](https://github.com/amehroz-mufin/flutter_sinusoidals//issues).
 
-If you fixed a bug or implemented a feature, please send a [pull request](https://github.com/dungnv2602/flutter_sinusoidals/pulls).
+If you fixed a bug or implemented a feature, please send a [pull request](https://github.com/amehroz-mufin/flutter_sinusoidals/pulls).
 
 ## Special Thanks
 
 A big thank you to [KhanAcademy](https://www.khanacademy.org/science/ap-physics-1/ap-mechanical-waves-and-sound) & [Wiki](https://en.wikipedia.org/wiki/Sine_wave) for foundational knowledge about sine wave.
+
+Forked Updated Repository From : https://pub.dev/packages/flutter_sinusoidals
 
 A big thank you to all the contributors to the project. Every PR / reported issue is greatly appreciated!
