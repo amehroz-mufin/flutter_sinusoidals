@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
+import 'package:flutter_sinusoidals_v2/flutter_sinusoidals_v2.dart';
 
 void main() => runApp(const MyApp());
 
